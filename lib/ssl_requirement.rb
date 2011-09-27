@@ -142,11 +142,12 @@ module SslRequirement
   end
 
   def determine_port_string(port)
-    unless port_normal?(port)
-      ":#{port}"
-    else
-      ""
-    end
+    #unless port_normal?(port)
+      #":#{port}"
+    #else
+      #""
+    #end
+    ""
   end
 
   def port_normal?(port)

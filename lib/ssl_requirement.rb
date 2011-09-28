@@ -127,7 +127,7 @@ module SslRequirement
     request_port = request.port
 
     if ssl
-      "#{(ssl_host || request_host)}#{ssl_port || determine_port_string(request_port)}"
+      "#{(ssl_host || request_host)}#{determine_port_string(request_port)}"
     else
       "#{(non_ssl_host || request_host)}#{determine_port_string(request_port)}"
     end
@@ -142,12 +142,11 @@ module SslRequirement
   end
 
   def determine_port_string(port)
-    #unless port_normal?(port)
-      #":#{port}"
-    #else
-      #""
-    #end
-    ""
+    unless port_normal?(port)
+      ":#{port}"
+    else
+      ""
+    end
   end
 
   def port_normal?(port)
